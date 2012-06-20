@@ -37,3 +37,7 @@
 ただし、オリジナルの著作権表示を残すこと、利用許諾を同梱することをお願いしています。その他、詳細な条件は LICENSE をご覧ください。
 
 利用許諾についてのご意見や、その他ご不明な点・疑問点などがあれば、 info@appleple.com までぜひお問い合わせください。
+
+##関連情報
+
++  [a-blog cms API Documentation](http://www.a-blogcms.jp/api-docs/ "Generated Documentation")
