@@ -46,8 +46,8 @@ class ACMS_GET_Entry_ArchiveList extends ACMS_GET_Entry
             case 'biz_year' :
                 $substr = 7;
                 $biz_year = !empty($date[0]) ? $date[0] : date('Y');
-                $this->start = $biz_year++.'-04-01 00:00:00';
-                $this->end   = $biz_year.'-03-31 00:00:00';
+                $this->arc_start = $biz_year++.'-04-01 00:00:00';
+                $this->arc_end   = $biz_year.'-03-31 00:00:00';
                 $this->limit = 12;
                 break;
         }
@@ -68,8 +68,15 @@ class ACMS_GET_Entry_ArchiveList extends ACMS_GET_Entry
         $SQL->addOrder('entry_date', $this->order);
 
         ACMS_Filter::entrySession($SQL);
+
+        if ( empty($this->start) ){
+            $this->start = $this->arc_start;
+        }
+        if ( empty($this->end) ){
+            $this->end = $this->arc_end;
+        }
         ACMS_Filter::entrySpan($SQL, $this->start, $this->end);
-        
+
         if ( !empty($this->tags) ) {
             ACMS_Filter::entryTag($SQL, $this->tags);
         }
